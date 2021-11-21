@@ -1,0 +1,69 @@
+﻿
+@model IEnumerable<BookStore.DAL.Entities.BorrowerBook>
+
+@{
+    ViewData["Title"] = "Borrowed Books";
+}
+
+
+
+<br />
+<br />
+<a asp-action="Index" asp-controller="Members" class="btn btn-primary">Back To Members</a>
+
+<br />
+<br />
+
+<table class="table table-striped table-hover text-center">
+
+    <thead>
+        <tr>
+            <th class="text-center">Member Code</th>
+            <th class="text-center">Member Name</th>
+            <th class="text-center">Book Code</th>
+            <th class="text-center">Book Name</th>
+            <th class="text-center">Borrowed At</th>
+            <th class="text-center">Active</th>
+
+            <th class="text-center">Operations</th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Borrower.Code</td>
+                <td>@item.Borrower.Name</td>
+                <td>@item.Book.Code</td>
+                <td>@item.Book.Name</td>
+
+                <td>@item.BorrowAt</td>
+                @if (item.Returned == true)
+                {
+                    <td>No</td>
+                    <td>   <input class="btn btn-success" value="Returned" style="width:120px" disabled /></td>
+
+
+                }
+                else
+                {
+                    <td>Yes</td>
+                    <td>
+                        <form asp-action="BorrowedBooks" asp-controller="Members" method="post">
+                            <input type="hidden" name="BookId" value="@item.BookId" />
+                            <input type="hidden" name="BorrowerId" value="@item.BorrowerId" />
+                            <input type="submit" class="btn btn-danger" value="Return" style="width:120px" />
+                        </form>
+                    </td>
+
+                }
+
+
+            </tr>
+        }
+
+</table>

@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Css/myStyle.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+
+        <!-- Navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <h4 class="navbar-brand"><span class="brandname-span">Book</span> Store</h4>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-around" id="navbarNav">
+                    <ul class="navbar-nav">
+
+                        <li class="nav-item">
+                            <a asp-action="Index" asp-controller="Books" class="nav-link">Books</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-action="Index" asp-controller="Members" class="nav-link">Members</a>
+
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-action="Index" asp-controller="BorrowedBooks">Borrowed Books</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- End Navbar-->
+        <section class="content ">
+            <div class="container-fluid">
+                @RenderBody()
+            </div>
+            </section>
+    </div>
+    <script src="~/Js/jquery.min.js"></script>
+    <script src="~/Js/bootstrap.min.js"></script>
+    <script src="~/Js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+﻿@model BookStore.BL.Models.CreateBookVm
+@{
+    ViewData["Title"] = "Create";
+}
+
+<br />
+<br />
+<a asp-action="Index" asp-controller="Books" class="btn btn-primary">Back To Books</a>
+
+<br />
+<br />
+
+<form asp-action="Create" asp-controller="Books" method="post">
+    <div class="row">
+        <div class="form-group col-md-4">
+            <label for="BookName">Book Name</label>
+            <input type="text" class="form-control" asp-for="Name" placeholder="Enter Book Name">
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="BookCode">Book Code</label>
+            <input type="text" class="form-control" asp-for="Code" placeholder="Enter Book Code">
+            <span asp-validation-for="Code" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="BookStock">Book Stock</label>
+            <input type="text" class="form-control" asp-for="Stock" placeholder="Enter Book Stock">
+            <span asp-validation-for="Stock" class="text-danger"></span>
+        </div>
+    </div>
+
+    <br />
+    <br />
+    <center>
+        <input type="submit" class="btn btn-primary" value="Add" />
+        <input type="reset" class="btn btn-danger" value="Clear" />
+    </center>
+
+</form>
+

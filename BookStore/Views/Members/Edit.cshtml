@@ -1,0 +1,39 @@
+﻿@model BookStore.BL.Models.UpdateBorrowerVM
+@{
+    ViewData["Title"] = "Edit";
+
+}
+
+<br />
+<br />
+<a asp-action="Index" asp-controller="Members" class="btn btn-primary">Back To Members</a>
+
+<br />
+<br />
+
+<form asp-action="Edit" asp-controller="Members" method="post">
+    <input type="hidden" class="form-control" asp-for="Id">
+    <div class="row">
+        <div class="form-group col-md-4">
+            <label for="BorrowerName">Member Name</label>
+            <input type="text" class="form-control" asp-for="Name" placeholder="Enter Member Name">
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="BorrowerCode">Member Code</label>
+            <input type="text" class="form-control" asp-for="Code" placeholder="Enter Member Code" readonly>
+            <span asp-validation-for="Code" class="text-danger"></span>
+        </div>
+       
+    </div>
+
+    <br />
+    <br />
+    <center>
+        <input type="submit" class="btn btn-primary" value="Update" />
+        <input type="reset" class="btn btn-danger" value="Old Values" />
+    </center>
+
+</form>
+
+
